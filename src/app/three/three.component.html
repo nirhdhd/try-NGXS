@@ -1,0 +1,39 @@
+<form [formGroup]="formExample" (ngSubmit)="onSubmit()" class="body_div3">
+
+    <h1 class="header_txt_1">NGXS TRY</h1>
+    <p class="header_txt_2">component Number 3 -Form</p>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Animals</mat-label>
+        <mat-select formControlName="animals" multiple>
+
+            <mat-option *ngFor="let animal of animalsList" [value]="animal">{{animal}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>some text</mat-label>
+        <input formControlName="someText" matInput>
+    </mat-form-field>
+
+    <mat-radio-group formControlName="radio" aria-label="Select an option">
+        <mat-radio-button style="margin-right: 10px;" value="1">Option 1</mat-radio-button>
+        <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+
+
+
+    <div class="showStateDiv">
+        <p>state:</p>
+        <p class="txt_s">
+            <span style="font-weight: 1000;"> animals:</span>{{this.myState?this.myState.animals:[]}}
+        </p>
+        <p class="txt_s">
+            <span style="font-weight: 1000;">some text:</span>{{this.myState?this.myState.someText:" "}}</p>
+        <p class="txt_s">
+            <span style="font-weight: 1000;"> radio:</span>{{ this.myState? this.myState.radio:-1}}</p>
+    </div>
+
+    <button type="submit" mat-button class="buttonStyle">change state</button>
+</form>
